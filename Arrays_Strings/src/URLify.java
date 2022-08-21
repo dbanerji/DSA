@@ -17,15 +17,15 @@ public class URLify {
         int noOfBlanks = countofblanks(s, 0, truelength, ' ');
         int newindex = truelength - 1 + noOfBlanks * 2;
         //excess spaces that are not required.
-        if(newindex < s.length){
+        if(newindex+1 < s.length){
             s[newindex+1] ='\0';
         }
         for (int i = truelength - 1; i >= 0; i--) {
             if (s[i] == ' ') {
-                s[i] = '0';
-                s[i - 1] = '2';
-                s[i - 2] = '%';
-                i=i-3;
+                s[newindex] = '0';
+                s[newindex - 1] = '2';
+                s[newindex - 2] = '%';
+                newindex = newindex - 3;
             } else {
                 s[newindex] = s[i];
                 newindex--;
@@ -42,7 +42,7 @@ public class URLify {
         return -1;
     }
         public static void main(String[] args) {
-            String str = "Mr John Smith    ";
+            String str = "Miss Deboshruti Banerji    ";
             char[] arr = str.toCharArray();
             int trueLength = findLastCharacter(arr) + 1;
             convertblanks(arr, trueLength);
