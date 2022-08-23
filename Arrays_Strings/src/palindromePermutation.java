@@ -3,6 +3,7 @@ import java.util.HashMap;
 public class palindromePermutation {
     //Eg:Taco Cat
     //Ignore blanks and case
+    //Unoptimized version 1
     public static void main(String[] args){
         String s = new String("Taco Cat");
         int i =countletters(s);
